@@ -33,19 +33,20 @@ func main() {
 	fmt.Println(strFromUser)
 	sliceofInts := make([]int,0,10)
 	sliceOfStrs := strings.Split(strFromUser, " ")
-	fmt.Println(sliceOfStrs)
+	// fmt.Println(sliceOfStrs)
 	for _, s := range sliceOfStrs {
 		newInt, _ := strconv.Atoi(s)
 		sliceofInts = append(sliceofInts, newInt)
 	}
-	fmt.Println(sliceofInts)
+	fmt.Println("Test Swap",sliceofInts)
 	Swap(sliceofInts, 3)
-	fmt.Println(sliceofInts)
-	fmt.Println("now sort the whole thing")
+
+	fmt.Println("now sort the whole thing", sliceofInts)
 	BubbleSort(sliceofInts)
 }
 
 func BubbleSort(sliceToSort []int){
+	// fmt.Println(sliceToSort)
 	for i, _:= range sliceToSort {
 		if !sweep(sliceToSort, i) {
 			fmt.Println(sliceToSort)
@@ -58,7 +59,7 @@ func sweep(sliceToSort []int, prevPasses int) bool {
 	didSwap := false
 	for i := 0; i < len(sliceToSort) - prevPasses; i++ {
 		if len(sliceToSort) > i+1 {
-			fmt.Println("comparing: ", sliceToSort[i], sliceToSort[i+1])
+			// fmt.Println("comparing: ", sliceToSort[i], sliceToSort[i+1])
 			if sliceToSort[i] > sliceToSort[i+1] {
 				Swap(sliceToSort, i)
 				didSwap = true
@@ -73,5 +74,5 @@ func Swap(sints []int, indx int) {
 	intToSwap := sints[indx]
 	sints[indx] = sints[indx+1]
 	sints[indx+1] = intToSwap
-	fmt.Println("Swapped: ", sints[indx], intToSwap)
+	// fmt.Println("Swapped: ", sints[indx], intToSwap)
 }
